@@ -781,9 +781,7 @@ typedef NS_ENUM(NSInteger, ORKQuestionSection) {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
     [_choiceCellGroup didSelectCellAtIndexPath:indexPath];
-    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -873,7 +871,7 @@ static NSString *const _ORKOriginalAnswerRestoreKey = @"originalAnswer";
 #pragma mark - ORKTextChoiceCellGroupDelegate
 
 - (void)answerChangedForIndexPath:(NSIndexPath *)indexPath {
-    // Capture `isStepImmediateNavigation` before saving an answer.
+//     Capture `isStepImmediateNavigation` before saving an answer.
     BOOL immediateNavigation = [self isStepImmediateNavigation];
     
     id answer = (self.questionStep.questionType == ORKQuestionTypeBoolean) ? [_choiceCellGroup answerForBoolean] :[_choiceCellGroup answer];
@@ -882,7 +880,7 @@ static NSString *const _ORKOriginalAnswerRestoreKey = @"originalAnswer";
     self.hasChangedAnswer = YES;
     
     if (immediateNavigation) {
-        // Proceed as continueButton tapped
+//         Proceed as continueButton tapped
         ORKSuppressPerformSelectorWarning(
                                           [self.continueButtonItem.target performSelector:self.continueButtonItem.action withObject:self.continueButtonItem];);
     }

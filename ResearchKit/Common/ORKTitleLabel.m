@@ -38,7 +38,9 @@
 {
     self = [super init];
     if (self) {
-        self.numberOfLines = 2;
+//        Dylan was here
+//        self.numberOfLines = 2;
+        self.numberOfLines = 3;
         self.textAlignment = NSTextAlignmentLeft;
     }
     return self;

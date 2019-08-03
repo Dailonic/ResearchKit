@@ -309,9 +309,11 @@
     if (!_navigationFooterView && _signingView) {
         _navigationFooterView = _signingView.navigationFooterView;
     }
-    _navigationFooterView.skipButtonItem = self.skipButtonItem;
+//    Dylan was here
+//    _navigationFooterView.skipButtonItem = self.skipButtonItem;
     _navigationFooterView.continueButtonItem = self.continueButtonItem;
-    _navigationFooterView.cancelButtonItem = self.cancelButtonItem;
+//    Dylan was here
+//    _navigationFooterView.cancelButtonItem = self.cancelButtonItem;
     
     _navigationFooterView.optional = NO;
     [_navigationFooterView updateContinueAndSkipEnabled];

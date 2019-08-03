@@ -337,7 +337,10 @@ static const CGFloat LabelLeadingPadding = 10.0;
     }
     _checkView.layer.cornerRadius = CheckViewDimension * 0.5;
     _checkView.layer.borderWidth = CheckViewBorderWidth;
-    _checkView.layer.borderColor = self.tintColor.CGColor;
+    
+//    Dylan was here
+//    _checkView.layer.borderColor = self.tintColor.CGColor;
+    _checkView.layer.borderColor = [UIColor colorWithRed: 0.5 green: 0.0 blue: 0.5 alpha: 1.0].CGColor;
     _checkView.layer.masksToBounds = YES;
     _checkView.contentMode = UIViewContentModeCenter;
     [self.containerView addSubview:_checkView];

@@ -174,6 +174,7 @@
     } else if (attributedDetail || detail || text) {
         if (attributedDetail) {
             [attributedInstruction appendAttributedString:attributedDetail];
+            
         } else {
             [attributedInstruction appendAttributedString:[[NSAttributedString alloc] initWithString:detail ? : text attributes:nil]];
         }

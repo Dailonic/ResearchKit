@@ -134,7 +134,7 @@ static NSMutableDictionary *colors() {
                     ORKAuxiliaryImageTintColorKey: [UIColor colorWithRed:228.0 / 255.0 green:233.0 / 255.0 blue:235.0 / 255.0 alpha:1.0],
                     ORKNavigationContainerColorKey: [UIColor colorWithRed:249.0 / 255.0 green:249.0 / 255.0 blue:251.0 / 255.0 alpha:0.0],
                     ORKNavigationContainerShadowColorKey: [UIColor blackColor],
-                    ORKProgressLabelColorKey: [UIColor colorWithRed:142.0/255.0 green:142.0/255.0 blue:142.0/255.0 alpha:1.0],
+                    ORKProgressLabelColorKey: [UIColor colorWithRed: 0.0 green: 0.0 blue: 0.0 alpha: 1.0],
                     ORKiPadBackgroundViewColorKey: [UIColor colorWithRed:249.0 / 255.0 green:249.0 / 255.0 blue:251.0 / 255.0 alpha:1.0],
                     ORKTopContentImageViewBackgroundColorKey: (ORKRGB(0xD7D7D7)),
                     ORKBulletItemTextColorKey: [UIColor colorWithRed:0.56 green:0.56 blue:0.58 alpha:1.0]
@@ -528,6 +528,8 @@ UIFontTextStyle ORKTitleLabelFontTextStyleForWindow(UIWindow *window) {
         case ORKScreenTypeiPhone5:
             return UIFontTextStyleTitle1;
         default:
-            return UIFontTextStyleLargeTitle;
+//            Dylan was here
+//            return UIFontTextStyleLargeTitle;
+            return UIFontTextStyleTitle1;
     }
 }

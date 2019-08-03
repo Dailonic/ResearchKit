@@ -140,11 +140,13 @@
         
         [_tableContainer.tableView setBackgroundColor:ORKNeedWideScreenDesign(self.view) ? [UIColor clearColor] : ORKColor(ORKBackgroundColorKey)];
         _navigationFooterView = _tableContainer.navigationFooterView;
-        _navigationFooterView.skipButtonItem = self.skipButtonItem;
+//        Dylan was here
+//        _navigationFooterView.skipButtonItem = self.skipButtonItem;
         _navigationFooterView.continueEnabled = YES;
         _navigationFooterView.continueButtonItem = self.continueButtonItem;
         _navigationFooterView.optional = self.step.optional;
-        _navigationFooterView.cancelButtonItem = self.cancelButtonItem;
+//        Dylan was here
+//        _navigationFooterView.cancelButtonItem = self.cancelButtonItem;
         [self setupConstraints];
         [_tableContainer setNeedsLayout];
     }

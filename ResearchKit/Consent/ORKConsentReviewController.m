@@ -64,10 +64,19 @@ static const CGFloat iPadStepTitleLabelFontSize = 50.0;
         _agreeButton = [[UIBarButtonItem alloc] initWithTitle:ORKLocalizedString(@"BUTTON_AGREE", nil) style:UIBarButtonItemStylePlain target:self action:@selector(ack)];
         _agreeButton.enabled = !requiresScrollToBottom;
         
-        self.toolbarItems = @[
+//         Dylan was here
+//        self.toolbarItems = @[
+//                              [[UIBarButtonItem alloc] initWithTitle:ORKLocalizedString(@"BUTTON_DISAGREE", nil) style:UIBarButtonItemStylePlain target:self action:@selector(cancel)],
+//                              [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+//                              _agreeButton];
+        
+        UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+        
+        self.toolbarItems = @[flexibleSpace,
                              [[UIBarButtonItem alloc] initWithTitle:ORKLocalizedString(@"BUTTON_DISAGREE", nil) style:UIBarButtonItemStylePlain target:self action:@selector(cancel)],
-                             [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
-                             _agreeButton];
+                             flexibleSpace,
+                             _agreeButton,
+                              flexibleSpace];
     }
     return self;
 }
@@ -81,8 +90,10 @@ static const CGFloat iPadStepTitleLabelFontSize = 50.0;
     
     _toolbar = [[UIToolbar alloc] init];
     
-    _toolbar.items = [@[_cancelButtonItem,
-                       [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]] arrayByAddingObjectsFromArray:self.toolbarItems];
+//     Dylan was here
+//    _toolbar.items = [@[_cancelButtonItem,
+//                       [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]] arrayByAddingObjectsFromArray:self.toolbarItems];
+    _toolbar.items = self.toolbarItems;
     
     self.view.backgroundColor = ORKColor(ORKConsentBackgroundColorKey);
     if (self.navigationController.navigationBar) {

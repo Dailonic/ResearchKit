@@ -298,7 +298,8 @@ static NSString *const _SignatureStepIdentifier = @"signatureStep";
         case ORKConsentReviewPhaseSignature: {
             // Signature VC
             ORKSignatureStepViewController *signatureViewController = [self makeSignatureViewController];
-            signatureViewController.cancelButtonItem = self.cancelButtonItem;
+            // Dylan was here
+            // signatureViewController.cancelButtonItem = self.cancelButtonItem;
             viewController = signatureViewController;
             break;
         }

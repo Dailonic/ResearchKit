@@ -145,7 +145,16 @@
             } else {
                 ORKScaleRangeLabel *leftRangeLabel = [[ORKScaleRangeLabel alloc] initWithFrame:CGRectZero];
                 leftRangeLabel.textAlignment = NSTextAlignmentCenter;
-                leftRangeLabel.text = [formatProvider localizedStringForNumber:[formatProvider minimumNumber]];
+                
+//                Dylan was here
+//                leftRangeLabel.text = [formatProvider localizedStringForNumber:[formatProvider minimumNumber]];
+                if ([_formatProvider isKindOfClass:[ORKContinuousScaleAnswerFormat class]]) {
+                    NSNumber *minValue = [formatProvider minimumNumber];
+                    leftRangeLabel.text = [formatProvider localizedStringForNumber:@([minValue doubleValue]*500)];
+                } else {
+                    leftRangeLabel.text = [formatProvider localizedStringForNumber:[formatProvider minimumNumber]];
+                }
+                
                 _leftRangeView = leftRangeLabel;
             }
             
@@ -154,7 +163,16 @@
             } else {
                 ORKScaleRangeLabel *rightRangeLabel = [[ORKScaleRangeLabel alloc] initWithFrame:CGRectZero];
                 rightRangeLabel.textAlignment = NSTextAlignmentCenter;
-                rightRangeLabel.text = [formatProvider localizedStringForNumber:[formatProvider maximumNumber]];
+                
+//                Dylan was here
+//                rightRangeLabel.text = [formatProvider localizedStringForNumber:[formatProvider maximumNumber]];
+                if ([_formatProvider isKindOfClass:[ORKContinuousScaleAnswerFormat class]]) {
+                    NSNumber *maxValue = [formatProvider maximumNumber];
+                    rightRangeLabel.text = [formatProvider localizedStringForNumber:@([maxValue doubleValue]*500)];
+                } else {
+                    rightRangeLabel.text = [formatProvider localizedStringForNumber:[formatProvider maximumNumber]];
+                }
+                
                 _rightRangeView = rightRangeLabel;
             }
             
@@ -492,6 +510,7 @@
     _slider.showThumb = _currentNumberValue ? YES : NO;
     
     [self updateCurrentValueLabel];
+    
     _slider.value = _currentNumberValue.floatValue;
 }
 
@@ -510,7 +529,14 @@
             }
         } else {
             NSNumber *newValue = [_formatProvider normalizedValueForNumber:_currentNumberValue];
-            _valueLabel.text = [_formatProvider localizedStringForNumber:newValue];
+            
+//            Dylan was here
+//            _valueLabel.text = [_formatProvider localizedStringForNumber:newValue];
+            if ([_formatProvider isKindOfClass:[ORKContinuousScaleAnswerFormat class]]) {
+                _valueLabel.text = [_formatProvider localizedStringForNumber:@(lround([newValue doubleValue])*500)];
+            } else {
+                _valueLabel.text = [_formatProvider localizedStringForNumber:newValue];
+            }
         }
     } else {
         _valueLabel.text = @"";
@@ -518,7 +544,6 @@
 }
 
 - (IBAction)sliderValueChanged:(id)sender {
-    
     _currentNumberValue = [_formatProvider normalizedValueForNumber:@(_slider.value)];
     [self updateCurrentValueLabel];
     [self notifyDelegate];

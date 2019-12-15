@@ -93,7 +93,9 @@
     }
     _tableView.backgroundColor = ORKColor(ORKBackgroundColorKey);
     _tableView.allowsSelection = YES;
-    _tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
+//    Dylan was here
+//    _tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
+    _tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeNone;
     _tableView.preservesSuperviewLayoutMargins = YES;
     _tableView.layer.masksToBounds = YES;
     [_tableView setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
@@ -229,9 +231,12 @@
 
 - (void)sizeHeaderToFit {
     [self.stepContentView.titleLabel setPreferredMaxLayoutWidth:self.stepContentView.bounds.size.width];
+//     Dylan was here
+    if (self.stepContentView.detailTextLabel) {
+        [self.stepContentView.detailTextLabel setPreferredMaxLayoutWidth:self.stepContentView.bounds.size.width];
+    }
     CGFloat estimatedHeight = [self.stepContentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
-    CGRect bounds = CGRectMake(0.0, 0.0, self.stepContentView.bounds.size.width, self.stepContentView.bounds.size.height);
-    bounds.size.height = estimatedHeight;
+    CGRect bounds = CGRectMake(0.0, 0.0, self.stepContentView.bounds.size.width, estimatedHeight);
     [self.stepContentView setBounds:bounds];
 }
 

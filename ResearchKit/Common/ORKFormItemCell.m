@@ -896,7 +896,9 @@ static const CGFloat HorizontalSpacer = 16.0;
     _lastSeenLineCount = 1;
     self.labelLabel.text = nil;
     _textView = [[ORKFormTextView alloc] init];
-    _textView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
+//    Dylan was here
+//    _textView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
+    _textView.keyboardDismissMode = UIScrollViewKeyboardDismissModeNone;
     _textView.delegate = self;
     _textView.contentInset = UIEdgeInsetsMake(-5.0, -4.0, -5.0, 0.0);
     _textView.textAlignment = NSTextAlignmentNatural;

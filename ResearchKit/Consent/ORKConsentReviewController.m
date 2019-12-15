@@ -61,7 +61,10 @@ static const CGFloat iPadStepTitleLabelFontSize = 50.0;
         _htmlString = html;
         _delegate = delegate;
         
-        _agreeButton = [[UIBarButtonItem alloc] initWithTitle:ORKLocalizedString(@"BUTTON_AGREE", nil) style:UIBarButtonItemStylePlain target:self action:@selector(ack)];
+//         Dylan was here
+//        _agreeButton = [[UIBarButtonItem alloc] initWithTitle:ORKLocalizedString(@"BUTTON_AGREE", nil) style:UIBarButtonItemStylePlain target:self action:@selector(ack)];
+        
+        _agreeButton = [[UIBarButtonItem alloc] initWithTitle:ORKLocalizedString(@"BUTTON_AGREE", nil) style:UIBarButtonItemStyleDone target:self action:@selector(ack)];
         _agreeButton.enabled = !requiresScrollToBottom;
         
 //         Dylan was here
